@@ -209,7 +209,11 @@ use thiserror::Error as ThisError;
 pub struct MyError {
     #[source]  // optional if field name is `source`
     source: MyInnerError, // if we know it is always this error type
-    message: String, // we can't use #[from] because of this extra field
+    message: String, // we can't use #[from] because of this extra field // so using source here forbids me for always to use from?
+    //,
+    //#[error("IO troubles")]
+    //IO(#[from] std::io::Error),
+    //```
 }
 ```
 
